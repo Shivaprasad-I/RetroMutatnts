@@ -1,3 +1,127 @@
-<h1> Snake </h1>
-<canvas id="ScreenCanvas" height="400" width="400"></canvas>
-<script type="module" src="snake.js" > </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RetroMutatnts - Snake</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%234ade80%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><rect width=%2220%22 height=%2212%22 x=%222%22 y=%226%22 rx=%222%22/><path d=%22M6 12h.01M9 12h.01M15 12h.01M18 12h.01M12 12h.01%22/></svg>">
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #4ade80;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .game-container {
+            position: relative;
+            border: 4px solid #333;
+            box-shadow: 0 0 20px rgba(74, 222, 128, 0.2);
+            padding: 10px;
+            background: #1a1a1a;
+        }
+
+        /* Scanline effect for that CRT look */
+        .game-container::after {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 2;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
+
+        canvas {
+            display: block;
+            image-rendering: pixelated;
+        }
+
+        h1 {
+            text-shadow: 2px 2px #000;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        #GameOverOverlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: none; /* Hidden by default */
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .game-over-text {
+            color: #f87171;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            animation: blink 0.5s step-end infinite;
+        }
+
+        .restart-text {
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        .ui-panel {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+        <i data-lucide="gamepad-2" style="width: 40px; height: 40px; color: #4ade80;"></i>
+        <h1 style="margin: 0; font-size: 2.5rem;">SNAKE</h1>
+        <i data-lucide="snake" style="width: 40px; height: 40px; color: #4ade80;"></i>
+    </div>
+    
+    <script>
+      lucide.createIcons();
+    </script>
+    
+    <div class="game-container">
+        <canvas id="ScreenCanvas" height="400" width="400"></canvas>
+        
+        <div id="GameOverOverlay">
+            <div class="game-over-text">GAME OVER</div>
+            <div class="restart-text">Refresh page to try again</div>
+        </div>
+    </div>
+
+    <div class="ui-panel">
+        CONTROLS: ARROWS or HJKL (Vim Style)
+    </div>
+
+    <script type="module" src="snake.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+</body>
+</html>

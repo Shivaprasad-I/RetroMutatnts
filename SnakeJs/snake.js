@@ -62,7 +62,7 @@ while(true){
     await delay(speed);
     head_direction = next_head_direction;
     if(!draw_snake()){
-        console.log("Game Over!!!");
+        document.getElementById('GameOverOverlay').style.display = 'flex';
         break;
     }
 };

@@ -8,6 +8,9 @@ In this I'll be trying to create classic games which can be run in a browser.
 **Q: AI can build same thing in minutes?**
 - Yes, but where's the fun in that?
 
+**Q: So you'll not be using AI at all in this project?**
+- No, I'm not crazy and I suck at cosmetics (I'm talking about you CSS) so I rely entirly on AI for that, but logic that'll be only me
+
 ### Why am I here?
 Honestly? My day job has become a lot of "watching AI do the work," and my brain is starting to feel like mush. I needed a place to silence the "itch" to actually write code again. This is my playground for building classic 2D games with a modern twist. 
 
